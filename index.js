@@ -15,10 +15,6 @@ module.exports = function(filepath) {
 			if (image._originalMime !== Jimp.MIME_PNG || size !== bitmap.height) {
 				throw err;
 			}
-			if (size !== 256) {
-				image.resize(256, 256, Jimp.RESIZE_BICUBIC);
-			}
-
 			const resizedImages = sizeList.map(targetSize =>
 				image.clone().resize(targetSize, targetSize, Jimp.RESIZE_BICUBIC)
 			);
